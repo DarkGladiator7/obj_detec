@@ -81,8 +81,8 @@ def pascal_voc_to_coco(voc_annotation_dir, voc_image_dir, coco_dir, max_files=10
     print(f"✅ Successfully converted {len(xml_files)} VOC files to COCO format.")
 
 # Set paths and run the function
-annotations_dir = r"D:\obj_detec\VOC_2007\VOCtrainval_06-Nov-2007\VOCdevkit\VOC2007\Annotations"
-images_dir = r"D:\obj_detec\VOC_2007\VOCtrainval_06-Nov-2007\VOCdevkit\VOC2007\JPEGImages"
-coco_output_dir = r"D:\obj_detec\COCO_Annotations"
+annotations_dir = r"D:\obj_detec\VOC_2007\VOCtest_06-Nov-2007\VOCdevkit\VOC2007\Annotations"
+images_dir = r"D:\obj_detec\VOC_2007\VOCtest_06-Nov-2007\VOCdevkit\VOC2007\JPEGImages"
+coco_output_dir = r"D:\obj_detec\COCO_Annotations_Test"
 
 pascal_voc_to_coco(annotations_dir, images_dir, coco_output_dir, max_files=10)
