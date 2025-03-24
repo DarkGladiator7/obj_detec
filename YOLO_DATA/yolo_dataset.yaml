@@ -1,0 +1,27 @@
+train: D:/obj_detec/YOLO_DATA/YOLO_Train/images
+val: D:/obj_detec/YOLO_DATA/YOLO_Val/images
+test: D:/obj_detec/YOLO_DATA/YOLO_Test/images
+
+nc: 20  # Do not include background
+
+names:
+  - dog
+  - person
+  - train
+  - sofa
+  - chair
+  - car
+  - pottedplant
+  - diningtable
+  - horse
+  - cat
+  - cow
+  - bus
+  - bicycle
+  - motorbike
+  - bird
+  - tvmonitor
+  - sheep
+  - aeroplane
+  - boat
+  - bottle
