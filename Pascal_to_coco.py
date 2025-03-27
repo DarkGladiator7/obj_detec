@@ -1,9 +1,57 @@
+"""
+📌 Pascal VOC to COCO Format Conversion
+
+🔹 Pascal VOC Format (XML):
+    - Bounding box coordinates are stored as (xmin, ymin, xmax, ymax).
+    - Each annotation is stored in an XML file for each image.
+
+🔹 COCO Format (JSON):
+    - Uses a single JSON file containing:
+      1. **Images**: List of image metadata (id, filename, width, height).
+      2. **Annotations**: Contains bounding boxes in `[xmin, ymin, width, height]` format.
+      3. **Categories**: Unique object classes with assigned IDs.
+
+🔹 Conversion Steps:
+    1. Read Pascal VOC XML annotation files.
+    2. Extract image details (filename, width, height).
+    3. Convert bounding boxes:
+       `(xmin, ymin, xmax, ymax) → (xmin, ymin, width, height)`
+    4. Assign category IDs and store object labels.
+    5. Save output as a **COCO-style JSON file**.
+
+📂 **Output Structure:**
+    ├── COCO_Annotations_Test/
+    │   ├── images/        (Converted images)
+    │   ├── annotations_test.json   (COCO annotation file)
+
+✅ Example COCO Annotation:
+    ```
+    {
+        "images": [
+            {"id": 1, "file_name": "000005.jpg", "width": 500, "height": 375}
+        ],
+        "annotations": [
+            {
+                "id": 1, "image_id": 1, "category_id": 1,
+                "bbox": [48, 240, 195, 140], "area": 27300, "iscrowd": 0
+            }
+        ],
+        "categories": [
+            {"id": 1, "name": "person"}
+        ]
+    }
+    ```
+
+"""
+
 import os
 import json
 import xml.etree.ElementTree as ET
 from PIL import Image
 
 def pascal_voc_to_coco(voc_annotation_dir, voc_image_dir, coco_dir, max_files=10):
+    """Convert Pascal VOC XML annotations to COCO format."""
+    
     if not os.path.exists(coco_dir):
         os.makedirs(coco_dir)
 
